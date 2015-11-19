@@ -1,0 +1,7 @@
+library(dplyr)
+sccPM25 <- readRDS("/home/biffster/Dropbox/Work/Training/Data science/Coursera/Exploratory Data Analysis/summarySCC_PM25.rds")
+yearsBaltimore <- group_by(sccPM25[which(sccPM25$fips == 24510),], year)
+ttlEmBalt <- summarise(yearsBaltimore,count = sum(Emissions))
+plot(ttlEmBalt$year,ttlEmBalt$count, type = "l", main="Baltimore City", ylab = "PM25 Emissions (tons)", xlab = "")
+dev.copy(png,"project2_plot2.png")
+dev.off()

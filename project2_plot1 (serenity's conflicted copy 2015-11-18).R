@@ -1,0 +1,7 @@
+library(dplyr)
+sccPM25 <- readRDS("/home/biffster/Coursera/Exploratory Data Analysis/summarySCC_PM25.rds")
+years <- group_by(sccPM25, year)
+totalemission <- summarise(years,count = n())
+plot(totalemission$year,totalemission$count, type = "l", main="", ylab = "PM25 Emissions (tons)", xlab = "")
+dev.copy(png,"project2_plot1.png")
+dev.off()
