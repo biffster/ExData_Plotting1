@@ -1,0 +1,11 @@
+library(dplyr)
+library(plyr)
+sccPM25 <- readRDS("/home/biffster/Dropbox/Work/Training/Data science/Coursera/Exploratory Data Analysis/summarySCC_PM25.rds")
+sourcesPM25 <- readRDS("/home/biffster/Dropbox/Work/Training/Data science/Coursera/Exploratory Data Analysis/Source_Classification_Code.rds")
+lookup <- sourcesPM25[grep("Coal", sourcesPM25$SCC.Level.Three),]
+coalFull <- join(lookup, sccPM25, by="SCC")
+coalYears <- group_by(coalFull, year)
+coalTotal <- summarise(coalYears, count = sum(Emissions))
+plot(coalTotal$year, coalTotal$count, type = "l", main = "Coal combustion sources", ylab = "PM25 Emissions (tons)", xlab = "")
+dev.copy(png,"project2_plot1.png")
+dev.off()
