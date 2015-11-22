@@ -17,7 +17,7 @@ coalTotallac <- dplyr::summarise(coalYearslac, count = sum(Emissions, na.rm = TR
 
 par(mfrow=c(2,1))
 plot(coalTotalbalt$year, coalTotalbalt$count, type = "l", main = "Vehicle combustion sources in Baltimore City", ylab = "PM25 Emissions (tons)", xlab = "", col = "blue", lwd = 2.5)
-plot(coalTotallac$year, coalTotallac$count, type = "l", main = "Vehicle combustion sources in Los Angeles County", ylab = "PM25 Emissions (tons)", xlab = "", col = "red")
+plot(coalTotallac$year, coalTotallac$count, type = "l", main = "Vehicle combustion sources in Los Angeles County", ylab = "PM25 Emissions (tons)", xlab = "", col = "red", lwd = 2.5)
 
 dev.copy(png,"project2_plot6.png")
 dev.off()
