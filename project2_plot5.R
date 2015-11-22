@@ -1,6 +1,5 @@
-# This script will generate a plot showing the trend of PM2.5 Emissions for
-# four major types of measurements, plotted indvidually, over
-# the decade from 1999 to 2008.
+# This script will generate a plot showing the trend of PM2.5 Emissions from
+# from motor vehicles in Baltimore City over the decade from 1999 to 2008.
 
 # I use dplyr to use the groupby() and summarise() functions, and plyr
 # to take advanatage of its join() function
